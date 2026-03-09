@@ -136,7 +136,7 @@ export const projects = [
     role: 'UI 기획 및 개발',
     tech: ['Nuxt 3', 'shadcn-vue', 'TypeScript', 'Tailwind'],
     desc: '사내 통합형 BI 서비스. 분산된 데이터를 하나의 플랫폼에서 조회·분석할 수 있는 통합 대시보드.',
-    thumb: null,
+    thumb: '/images/img_po_biskit_sync.jpg',
     link: null,
     isPrivate: false,
   },
