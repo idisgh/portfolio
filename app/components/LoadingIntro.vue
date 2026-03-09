@@ -3,7 +3,7 @@
     <div class="green-glow" :style="glowStyle" />
     <div class="intro-content">
       <div v-if="!mini" class="logo-icon" :style="{ borderColor: accent, color: accent }">
-        <span>H</span>
+        <span>G</span>
       </div>
       <div class="intro-name">
         <span
