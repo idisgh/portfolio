@@ -10,5 +10,4 @@
 </template>
 
 <script setup lang="ts">
-const searchOpen = ref(false)
 </script>

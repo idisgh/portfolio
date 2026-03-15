@@ -23,7 +23,7 @@ const currentAccent = ref('#00dc82')
 
 const router = useRouter()
 
-router.afterEach((to, from) => {
+const unregisterGuard = router.afterEach((to, from) => {
   if (from.path === to.path) return
   if (isLoading.value) return
 
@@ -38,6 +38,10 @@ onMounted(() => {
   const color = accentColors[window.location.pathname] || '#00dc82'
   currentAccent.value = color
   document.documentElement.style.setProperty('--accent', color)
+})
+
+onUnmounted(() => {
+  unregisterGuard()
 })
 </script>
 

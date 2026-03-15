@@ -81,7 +81,7 @@
 import { gsap } from 'gsap'
 import { profile, projects } from '~/data/portfolio'
 
-let ScrollTrigger: typeof import('gsap/ScrollTrigger').ScrollTrigger
+let ScrollTrigger: typeof import('gsap/ScrollTrigger').ScrollTrigger | undefined
 
 const heroEl = ref<HTMLElement>()
 const sectionLabelEl = ref<HTMLElement>()
@@ -93,6 +93,11 @@ const wordEls = ref<HTMLElement[]>([])
 
 const introWords = ['Hi,', "I'm"]
 const featuredProjects = projects.filter(p => !p.isPrivate && p.thumb).slice(0, 3)
+
+onUnmounted(() => {
+  ScrollTrigger?.getAll().forEach(t => t.kill())
+  gsap.killTweensOf([sectionLabelEl.value, titleEl.value, descEl.value, aboutEl.value, workEl.value, ...wordEls.value].filter(Boolean))
+})
 
 onMounted(async () => {
   // 즉시 숨김 → FOUC 방지
