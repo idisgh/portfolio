@@ -259,7 +259,8 @@ export const projects = [
     desc: '기업 식대 관리 서비스 앱 UI 개발',
     thumb: '/images/img_po_ticket.png',
     link: null,
-    isPrivate: false,
+    isPrivate: true,
+    hidden: true,
   },
   {
     id: 'tui',
@@ -295,7 +296,8 @@ export const projects = [
     desc: '택시 서비스 모바일웹 UI 개발',
     thumb: '/images/img_po_taxim.jpg',
     link: null,
-    isPrivate: false,
+    isPrivate: true,
+    hidden: true,
   },
   {
     id: 'bread',
@@ -348,6 +350,7 @@ export const projects = [
 
   {
     id: 'tdc',
+    hidden: true,
     title: 'TDC 서비스',
     year: 2013,
     type: '실무 프로젝트',
@@ -356,7 +359,7 @@ export const projects = [
     desc: 'TDC 서비스 UI 개발',
     thumb: '/images/img_po_tdc.png',
     link: null,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     id: 'emul',
@@ -409,6 +412,7 @@ export const projects = [
   },
   {
     id: 'sh',
+    hidden: true,
     title: 'SH팩토리',
     year: 2012,
     type: '실무 프로젝트',
@@ -417,10 +421,11 @@ export const projects = [
     desc: '제조업 홈페이지 웹 퍼블리싱',
     thumb: '/images/img_po_sh.jpg',
     link: null,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     id: 'rocomo',
+    hidden: true,
     title: '로코모 서비스',
     year: 2012,
     type: '실무 프로젝트',
@@ -429,7 +434,7 @@ export const projects = [
     desc: '로코모 서비스 웹 퍼블리싱',
     thumb: '/images/img_po_rocomo.jpg',
     link: null,
-    isPrivate: false,
+    isPrivate: true,
   },
   {
     id: 'fix',
