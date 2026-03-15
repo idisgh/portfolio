@@ -64,7 +64,7 @@
               target="_blank"
               class="inline-flex items-center text-[11px] font-normal text-accent rounded-full px-2.5 py-0.5 no-underline flex-shrink-0 transition-colors duration-200"
               style="background: color-mix(in srgb, var(--accent) 8%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);"
-            >Live</a>
+            >Preview</a>
           </div>
           <p class="text-[13px] text-[#999] leading-[1.7] mb-3 max-w-xl">{{ project.desc }}</p>
           <div class="flex flex-wrap gap-1.5">
