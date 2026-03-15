@@ -1,6 +1,17 @@
 import { gsap } from 'gsap'
+import type { ScrollTrigger as ScrollTriggerType } from 'gsap/ScrollTrigger'
 
 export function useScrollReveal() {
+  let ScrollTriggerRef: typeof ScrollTriggerType | null = null
+
+  onUnmounted(() => {
+    // 페이지 이동 시 이 페이지의 ScrollTrigger 인스턴스 전체 정리
+    if (ScrollTriggerRef) {
+      ScrollTriggerRef.getAll().forEach(t => t.kill())
+      gsap.killTweensOf('[data-hero] .reveal, .reveal, .reveal-stagger > *')
+    }
+  })
+
   onMounted(async () => {
     // ScrollTrigger 로딩 전에 즉시 숨김 처리 → FOUC 방지
     const heroRevEls = document.querySelectorAll('[data-hero] .reveal')
@@ -8,6 +19,10 @@ export function useScrollReveal() {
 
     const { ScrollTrigger } = await import('gsap/ScrollTrigger')
     gsap.registerPlugin(ScrollTrigger)
+    ScrollTriggerRef = ScrollTrigger
+
+    // 이전 페이지의 잔여 인스턴스 정리
+    ScrollTrigger.getAll().forEach(t => t.kill())
 
     // ① hero 안의 .reveal → 페이지 진입 시 stagger 순차 등장 (스크롤 불필요)
     if (heroRevEls.length) {
@@ -25,22 +40,7 @@ export function useScrollReveal() {
         }
       )
 
-      // 퇴장: 스크롤 시 순차적으로 위로 사라짐 (scrub)
-      const heroEl = document.querySelector('[data-hero]')
-      if (heroEl) {
-        gsap.to(Array.from(heroRevEls).reverse(), {
-          opacity: 0,
-          y: -60,
-          stagger: 0.06,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: heroEl,
-            start: 'top top',
-            end: '+=400',
-            scrub: 1.2,
-          },
-        })
-      }
+
     }
 
     // ② hero 밖의 .reveal → ScrollTrigger
