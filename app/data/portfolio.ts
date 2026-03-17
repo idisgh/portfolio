@@ -72,7 +72,7 @@ export const projects = [
     role: 'UI 기획 및 개발',
     tech: ['Nuxt 4', 'TypeScript', 'Tailwind CSS', 'Prisma 7', 'PostgreSQL', 'Yahoo Finance API'],
     desc: '주식·코인·예금·펀드를 한 곳에서 관리하는 자산 포트폴리오 트래커. 실시간 시세, 차트, 뉴스, 투자 노트 기능.',
-    thumb: '/images/img_po_monolog.png',
+    thumb: '/images/img_po_monolog.jpg',
     link: 'https://hkj-monolog.vercel.app/',
     isPrivate: false,
   },
