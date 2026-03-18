@@ -1,5 +1,6 @@
 <template>
-  <nav class="fixed left-0 top-0 h-screen w-14 bg-[rgba(8,8,8,0.9)] border-r border-[#1a1a1a] flex flex-col items-center py-5 z-[100] backdrop-blur-md">
+  <!-- 데스크탑: 좌측 사이드바 -->
+  <nav class="hidden sm:flex fixed left-0 top-0 h-screen w-14 bg-[rgba(8,8,8,0.9)] border-r border-[#1a1a1a] flex-col items-center py-5 z-[100] backdrop-blur-md">
     <NuxtLink
       to="/"
       class="w-9 h-9 border border-accent rounded-md flex items-center justify-center text-base font-bold text-accent no-underline mb-8 transition-colors hover:bg-accent/10"
@@ -20,6 +21,20 @@
         </span>
       </NuxtLink>
     </div>
+  </nav>
+
+  <!-- 모바일: 하단 탭바 -->
+  <nav class="sm:hidden fixed bottom-0 left-0 right-0 h-14 bg-[rgba(8,8,8,0.95)] border-t border-[#1a1a1a] flex items-center justify-around z-[100] backdrop-blur-md">
+    <NuxtLink
+      v-for="item in navItems"
+      :key="item.to"
+      :to="item.to"
+      class="flex flex-col items-center gap-0.5 px-4 py-2 text-[#999] transition-colors"
+      :class="{ 'text-accent': isActive(item) }"
+    >
+      <component :is="item.icon" class="w-5 h-5" />
+      <span class="text-[10px]">{{ item.label }}</span>
+    </NuxtLink>
   </nav>
 </template>
 

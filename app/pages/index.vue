@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- Hero -->
-    <section ref="heroEl" class="min-h-screen flex items-center px-16">
+    <section ref="heroEl" class="min-h-screen flex items-center px-5 sm:px-16">
       <div class="max-w-[800px]">
         <div ref="sectionLabelEl" class="text-[13px] tracking-[0.2em] text-[#999] mb-8 font-normal">HOME</div>
 
-        <h1 ref="titleEl" class="font-display text-[clamp(42px,6vw,80px)] font-normal leading-tight tracking-tight text-white mb-7">
+        <h1 ref="titleEl" class="font-display text-[clamp(36px,6vw,80px)] font-normal leading-tight tracking-tight text-white mb-7">
           <span class="block">
             <span
               v-for="(word, wi) in introWords"
@@ -32,10 +32,10 @@
     </section>
 
     <!-- About Section -->
-    <section ref="aboutEl" class="px-16 py-32 border-t border-[#111]">
+    <section ref="aboutEl" class="px-5 sm:px-16 py-20 sm:py-32 border-t border-[#111]">
       <div class="max-w-[900px]">
         <div class="section-label text-[13px] tracking-[0.2em] text-[#999] mb-3 font-normal">ABOUT</div>
-        <h2 class="section-title font-display text-[clamp(28px,3.5vw,48px)] font-normal text-white mb-5 tracking-tight">Who I am</h2>
+        <h2 class="section-title font-display text-[clamp(24px,3.5vw,48px)] font-normal text-white mb-5 tracking-tight">Who I am</h2>
         <p class="section-text text-base text-[#999] leading-relaxed max-w-[560px] mb-8">{{ profile.tagline }}</p>
         <NuxtLink to="/about" class="link-btn inline-flex text-[13px] font-normal text-white no-underline bg-[#111] border border-[#1f1f1f] rounded-md px-4 py-2 transition-colors duration-200 hover:border-accent hover:text-accent">
           <span v-for="(c, i) in 'about-me'.split('')" :key="i">{{ c }}</span>
@@ -44,10 +44,10 @@
     </section>
 
     <!-- Work Section -->
-    <section ref="workEl" class="px-16 py-32 border-t border-[#111]">
+    <section ref="workEl" class="px-5 sm:px-16 py-20 sm:py-32 border-t border-[#111]">
       <div class="max-w-[900px]">
         <div class="section-label text-[13px] tracking-[0.2em] text-[#999] mb-3 font-normal">WORK</div>
-        <h2 class="section-title font-display text-[clamp(28px,3.5vw,48px)] font-normal text-white mb-5 tracking-tight">Projects highlight</h2>
+        <h2 class="section-title font-display text-[clamp(24px,3.5vw,48px)] font-normal text-white mb-5 tracking-tight">Projects highlight</h2>
         <div class="work-grid grid gap-px bg-[#111] border border-[#111] rounded-xl overflow-hidden mb-8" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
           <NuxtLink
             v-for="(project, i) in featuredProjects"
@@ -59,7 +59,7 @@
             <div v-if="project.thumb" class="w-full h-40 overflow-hidden border-b border-[#111]">
               <img :src="project.thumb" :alt="project.title" class="w-full h-full object-cover grayscale-[40%] transition-[filter] duration-300 group-hover:grayscale-0" />
             </div>
-            <div class="p-6">
+            <div class="p-5 sm:p-6">
               <div class="text-[13px] text-accent font-medium tracking-[0.1em] mb-2.5">{{ String(i + 1).padStart(2, '0') }}</div>
               <h3 class="text-[15px] font-medium text-white mb-2">{{ project.title }}</h3>
               <p class="text-xs text-[#999] leading-relaxed mb-3.5">{{ project.desc }}</p>
@@ -100,7 +100,6 @@ onUnmounted(() => {
 })
 
 onMounted(async () => {
-  // 즉시 숨김 → FOUC 방지
   gsap.set([sectionLabelEl.value, ...wordEls.value, descEl.value], { opacity: 0, y: 30 })
 
   const { ScrollTrigger: ST } = await import('gsap/ScrollTrigger')
