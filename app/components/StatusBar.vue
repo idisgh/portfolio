@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bottom-0 left-14 right-0 h-11 bg-[rgba(8,8,8,0.9)] border-t border-[#1a1a1a] flex items-center px-6 z-[100] backdrop-blur-md">
+  <div class="hidden sm:flex fixed bottom-0 left-14 right-0 h-11 bg-[rgba(8,8,8,0.9)] border-t border-[#1a1a1a] items-center px-6 z-[100] backdrop-blur-md">
     <div class="flex gap-8">
       <span class="flex gap-1.5 text-xs text-[#999]">
         <span>Based in</span>
